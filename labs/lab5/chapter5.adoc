@@ -116,27 +116,27 @@ $ oc cluster status
 
 Login to the web console with the `developer` user.
 
-image::img/1.png[Add Secrets]
+image::1.png[Add Secrets1]
 
 
 And after we’ve logged in, we see a list of projects that the developer user has access to. Let's select the `production` project:
-image::img/2.png[Add Secrets]
+image::2.png[Add Secrets2]
 
 
 Our project landing page provides us with a high-level overview of our wordpress application's pods, services, and route:
-image::img/3.png[Add Secrets]
+image::3.png[Add Secrets3]
 
 
 Let's dive a little deeper. We want to view a list of our pods by clicking on `Pods` in the left Applications menu:
-image::img/4.png[Add Secrets]
+image::4.png[Add Secrets4]
 
 
 Next, let's click on one of our running pods for greater detail:
-image::img/5.png[Add Secrets]
+image::5.png[Add Secrets5]
 
 
 With this view, we have access to pod information like status, logs, image, volumes, and more:
-image::img/6.png[Add Secrets]
+image::6.png[Add Secrets6]
 
 
 Feel free to continue exploring the console.
