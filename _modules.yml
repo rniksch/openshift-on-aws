@@ -11,9 +11,7 @@ config:
 modules:
   labs_lab0_chapter0:
     name: Getting Started
-  labs_lab1_chapter1:
-    name: Deploying it
-  labs_lab1_chapter1:
+  labs_lab5_chapter5:
     name: Deploying it easy
   labs_awssb_awssb:
     name: Provision cloud services
