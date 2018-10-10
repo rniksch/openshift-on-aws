@@ -1,6 +1,6 @@
 # The AWS Service Broker
 
-:imagesdir: /images
+:imagesdir: ../../images
 
 In this lab, we are going to build upon the previous labs and leverage what we have learned to utilize the [AWS Service Broker](https://github.com/awslabs/aws-servicebroker) to provision AWS Services and use them in your OpenShift environment.
 
@@ -152,7 +152,7 @@ Now deploy the image by clicking on the `Deploy` button.
 ### Create route. 
 Now that the application has been provisioned, we need to expose a route for it in order to open it in our browsers. In the console, click the downward facing arrow next to the application pod to expand the pod details. Find the `expose route` link. Click on it, leave everything in the new form as default, and click `create`
 
-image::../../images/create-route.png [Add Secrets]
+image::create-route.png [Add Secrets]
 
 ![Add Secrets](/api/workshops/openshift_rh_summit_2018/content/assets/labs/awssb/img/create-route.png "Add APB Secrets")
 
