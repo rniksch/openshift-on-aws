@@ -1,7 +1,5 @@
 # The AWS Service Broker
 
-:imagesdir: ../../images
-
 In this lab, we are going to build upon the previous labs and leverage what we have learned to utilize the [AWS Service Broker](https://github.com/awslabs/aws-servicebroker) to provision AWS Services and use them in your OpenShift environment.
 
 Expected completion: 10-20 minutes
@@ -134,7 +132,7 @@ image::change-project.png[Add Secrets]
 ### Deploy a new image. 
 In the right hand side of the console, click on "Add to Project" and in the dropdown select "Deploy an Image"
 
-image::deploy-image.png[Add Secrets]
+image::img/deploy-image.png[Add Secrets]
 
 
 ### Type in the Image Name and Deploy
