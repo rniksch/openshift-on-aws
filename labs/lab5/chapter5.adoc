@@ -116,22 +116,28 @@ $ oc cluster status
 
 Login to the web console with the `developer` user.
 
-![image not loading](/api/workshops/openshift_rh_summit_2018/content/assets/labs/lab5/images/1.png "Login")
+image::img/1.png[Add Secrets]
+
 
 And after we’ve logged in, we see a list of projects that the developer user has access to. Let's select the `production` project:
-![image not loading](/api/workshops/openshift_rh_summit_2018/content/assets/labs/lab5/images/2.png "Projects")
+image::img/2.png[Add Secrets]
+
 
 Our project landing page provides us with a high-level overview of our wordpress application's pods, services, and route:
-![image not loading](/api/workshops/openshift_rh_summit_2018/content/assets/labs/lab5/images/3.png "Overview")
+image::img/3.png[Add Secrets]
+
 
 Let's dive a little deeper. We want to view a list of our pods by clicking on `Pods` in the left Applications menu:
-![image not loading](/api/workshops/openshift_rh_summit_2018/content/assets/labs/lab5/images/4.png "Pods")
+image::img/4.png[Add Secrets]
+
 
 Next, let's click on one of our running pods for greater detail:
-![image not loading](/api/workshops/openshift_rh_summit_2018/content/assets/labs/lab5/images/5.png "Wordpress")
+image::img/5.png[Add Secrets]
+
 
 With this view, we have access to pod information like status, logs, image, volumes, and more:
-![image not loading](/api/workshops/openshift_rh_summit_2018/content/assets/labs/lab5/images/6.png "PodDetails")
+image::img/6.png[Add Secrets]
+
 
 Feel free to continue exploring the console.
 

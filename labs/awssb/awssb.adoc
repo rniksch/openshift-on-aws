@@ -40,7 +40,8 @@ clusterservicebroker "aws-service-broker" created
 
 Performing a refresh in the OpenShift service catalog should now show serval AWS service icons. This will not be functional at this stage.
 
-![AWS Catalog](/api/workshops/openshift_rh_summit_2018/content/assets/labs/awssb/img/sc-awssb-listing.png "List of AWS Services")
+image::img/sc-awssb-listing.png[Add Secrets]
+
 
 ## Configure the Service Broker to populate parameters. 
 In this section we want to add a secret and some mapping to the AWS Service Broker deployment that will automatically be consumed by the broker, so that we don't need to pass it every time. 
@@ -82,7 +83,7 @@ This will allow dev teams to deploy the AWS SQS service without needing to provi
 
 The resulting file should look like this
 
-image::add-awssb-secret.png[Add Secrets]
+image::img/add-awssb-secret.png[Add Secrets]
 
 Step 5:: Restart the Service Broker:
 ----
