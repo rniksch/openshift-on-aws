@@ -9,9 +9,9 @@ config:
       value: "Default"
 
 modules:
-  labs_lab0_chapter0:
+  labs_lab0_chapter0.adoc:
     name: Getting Started
-  labs_lab5_chapter5:
+  labs_lab5_chapter5.adoc:
     name: Deploying it easy
-  labs_awssb_awssb:
+  labs_awssb_awssb.adoc:
     name: Provision cloud services
