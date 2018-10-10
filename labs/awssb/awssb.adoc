@@ -84,7 +84,7 @@ This will allow dev teams to deploy the AWS SQS service without needing to provi
 
 The resulting file should look like this
 
-image::add-awssb-secret.png [Add Secrets]
+image::add-awssb-secret.png[Add Secrets]
 
 Step 5:: Restart the Service Broker:
 ----
@@ -129,18 +129,18 @@ Select not to bind the service at this time. We will do it later.
 ### Navigate to the new project. 
 Make sure that you are in the new project in the OpenShift Console, by clicking on the project list names in the top left corner, and selecting the new project you created when provisioning the SQS queue.
 
-image::change-project.png [Add Secrets]
+image::change-project.png[Add Secrets]
 
 ### Deploy a new image. 
 In the right hand side of the console, click on "Add to Project" and in the dropdown select "Deploy an Image"
 
-image::deploy-image.png [Add Secrets]
+image::deploy-image.png[Add Secrets]
 
 
 ### Type in the Image Name and Deploy
 In the pop-up that gets displayed, enter the image name you want to deploy `mandusm/sqs-sample`. Click the magnifying glass icon to load the metadata from the Docker Repository. 
 
-image::image-metadata.png [Add Secrets]
+image::image-metadata.png[Add Secrets]
 
 ### Deploy the image. 
 Now deploy the image by clicking on the `Deploy` button. 
@@ -148,7 +148,7 @@ Now deploy the image by clicking on the `Deploy` button.
 ### Create route. 
 Now that the application has been provisioned, we need to expose a route for it in order to open it in our browsers. In the console, click the downward facing arrow next to the application pod to expand the pod details. Find the `expose route` link. Click on it, leave everything in the new form as default, and click `create`
 
-image::create-route.png [Add Secrets]
+image::create-route.png[Add Secrets]
 
 Once this is done, you should see a new URl available above your pod. Click on this URL to open your app in a new browser tab. You can expect to see an error of missing credentials / parameters. 
 
