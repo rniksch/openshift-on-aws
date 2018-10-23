@@ -31,7 +31,7 @@ A template will be used to deploy these to OpenShift.
 
 Feel free to view the full template.
 ----
-$ cd ~/summit-2018-container-lab/labs/lab5/
+$ cd ~/openshift-on-aws/labs/lab5/
 $ grep localhost:5000 wordpress-template.yaml
 ----
 
