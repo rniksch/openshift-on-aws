@@ -67,7 +67,7 @@ replication controller "mariadb-1" successfully rolled out
 replication controller "wordpress-1" successfully rolled out
 ----
 
-Step 6: Verify the database started
+Step 6:: Verify the database started
 ----
 $ oc logs dc/mariadb
 ----

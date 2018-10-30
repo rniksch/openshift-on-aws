@@ -127,7 +127,7 @@ Before we get our hands dirty we will run a setup process which will build out s
 
 Step 8:: Run the setup
 ----
-cd ~/openshift-on-aws/lab0
+cd ~/openshift-on-aws/labs/lab0
 chmod 755 setup.sh
 ./setup.sh
 ----
