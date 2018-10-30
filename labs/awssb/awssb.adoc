@@ -40,7 +40,7 @@ clusterservicebroker "aws-service-broker" created
 
 Performing a refresh in the OpenShift service catalog should now show serval AWS service icons. This will not be functional at this stage.
 
-image::img/sc-awssb-listing.png[Add Secrets]
+
 image::sc-awssb-listing.png[Add Secrets]
 
 ## Configure the Service Broker to populate parameters. 
@@ -84,7 +84,7 @@ This will allow dev teams to deploy the AWS SQS service without needing to provi
 
 The resulting file should look like this
 
-image::img/add-awssb-secret.png[Add Secrets]
+
 image::add-awssb-secret.png[Add Secrets]
 
 Step 5:: Restart the Service Broker:
@@ -143,7 +143,7 @@ image::deploy-image.png[img3]
 ### Type in the Image Name and Deploy
 In the pop-up that gets displayed, enter the image name you want to deploy `mandusm/sqs-sample`. Click the magnifying glass icon to load the metadata from the Docker Repository. 
 
-image::img/image-metadata.png[Add Secrets]
+
 image::image-metadata.png[img 3]
 
 ### Deploy the image. 
