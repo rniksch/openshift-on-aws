@@ -18,7 +18,7 @@ Step 1:: Retrieve the key from the Download links here
 If You are running this workshop in Asia:
 ----
 [SSH Private Key - PEM ](https://s3-us-west-2.amazonaws.com/redhat-workshops/keys/apac-workshops.pem)
-[SSH Private Key - PPK ](https://s3-us-west-2.amazonaws.com/redhat-workshops-lab/keys/apac-workshops.ppk)
+[SSH Private Key - PPK ](https://s3-us-west-2.amazonaws.com/redhat-workshops/keys/apac-workshops.ppk)
 ----
 
 If you are running this workhshop in the US:
