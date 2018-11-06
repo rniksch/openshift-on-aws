@@ -59,9 +59,9 @@ sed -ie "s/<account-id>/$(curl -s http://169.254.169.254/latest/meta-data/iam/in
 
 The above command will look up and add the AWS account id to the aws-servicebroker-secret.yaml file. you can confirm that this has completed as expected:
 
----
+----
 vi aws-servicebroker-secret.yaml
----
+----
 
 You should see the account number in the AWS IAM Role. "arn:aws:iam::755152575036:role/aws-servicebroker-cfn-deploy-role"
 If the account number is still missing, you can add it to the role manually, and proceed to step 3.
