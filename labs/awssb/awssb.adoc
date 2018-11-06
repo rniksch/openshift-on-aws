@@ -57,7 +57,7 @@ Step 2:: Update the aws-servicebroker-secret.yaml with AWS IAM Role:
 sed -ie "s/<account-id>/$(curl -s http://169.254.169.254/latest/meta-data/iam/info/ | grep -oP '\d*(?=\:instance-profile)')/g" aws-servicebroker-secret.yaml
 ----
 
-The above command will look up and add the AWS account id to the aws-servicebroker-secret.yaml file. you can confirm that this has completed as expected:
+The above command will look up and add the AWS account id to the aws-servicebroker-secret.yaml file. you can confirm that this has completed as expected.
 
 ----
 vi aws-servicebroker-secret.yaml
