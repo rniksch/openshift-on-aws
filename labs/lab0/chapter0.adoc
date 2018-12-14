@@ -2,6 +2,9 @@
 
 In this lab, we are going to leverage a process known as [`oc cluster up`](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md). `oc cluster up` leverages the local docker daemon and enables us to quickly stand up a local OpenShift Container Platform to start our evaluation. The key result of `oc cluster up` is a reliable, reproducible OpenShift environment to iterate on.
 
+We will also build out resourses needed for later labs:
+A container registry, as well as a forntend application and database docker container which will later be imported into OpenShift.
+
 Expected completion: 5-10 minutes
 
 ## Find your AWS Instance
@@ -142,7 +145,7 @@ $ git clone https://github.com/rniksch/openshift-on-aws.git
 
 What is OpenShift? OpenShift, which you may remember as a "[PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service)" to build applications on, has evolved into a complete container platform based on Kubernetes. If you remember the "[DIY Cartridges](https://github.com/openshift/origin-server/blob/master/documentation/oo_cartridge_guide.adoc#diy)" from older versions of Openshift, essentially, OpenShift v3 has expanded the functionality to provide complete containers. With OpenShift, you can build from a platform, build from scratch, or anything else you can do in a container, and still get the complete lifecycle automation you loved in the older versions.
 
-Before we get our hands dirty we will run a setup process which will build out some basic docker application workloads and psuh these to a local container registry.
+Before we get our hands dirty we will run a setup process which will build out some basic docker application workloads and pushh these to a local container registry. 
 
 Step 8:: Run the setup
 ----
