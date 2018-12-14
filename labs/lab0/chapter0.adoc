@@ -49,11 +49,11 @@ Important!: The Linux user to log in with is `ec2-user`
 This lab should be performed on **YOUR ASSIGNED AWS INSTANCE** as `ec2-user` unless otherwise instructed.
 
 Step 2:: Connect to the instance:
-If running the lab in Asia:
+If running the lab in US:
 ----
 $ ssh -i ocp-lab.pem ec2-user@student-<number>.openshift.awsworkshop.io
 ----
-If running the lab in the US:
+If running the lab in the ASIA:
 ----
 $ ssh -i apac-workshops.pem ec2-user@student-<number>.openshift.awsworkshop.io
 ----
