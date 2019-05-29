@@ -8,4 +8,16 @@ modules:
   labs_lab7_lab7:
     name: Modernize application with native AWS service
   labs_lab8_lab8:
-    name: Launching Dotnet apps via templates  
+    name: Launching Dot Net apps via templates 
+  labs_lab9_lab9:
+    name: Using templates 
+  labs_lab10_lab10:
+    name: Running at scale
+  labs_lab11_lab11:
+    name: OPTIONAL - Blue Green Deployments
+  labs_lab12_lab12:
+    name: OPTIONAL - Auto deploy with web hooks
+  labs_lab13_lab13:
+    name: OPTIONAL - Change Rollback          
+  labs_lab14_lab14:
+    name: OPTIONAL - CICD  
