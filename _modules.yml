@@ -7,3 +7,5 @@ modules:
     name: Provision cloud services
   labs_lab7_lab7:
     name: Modernize application with native AWS service
+  labs_lab8_lab8:
+    name: Launching Dotnet apps via templates  
