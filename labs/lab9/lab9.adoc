@@ -1,6 +1,6 @@
-[[using-templates]]
-Using Templates
-~~~~~~~~~~~~~~~
+
+# Using Templates
+
 
 In this lab exercise we will learn how to use OpenShift Web Console to
 spin up a MySQL database using templates. We will then add a frontend
@@ -8,22 +8,21 @@ PHP application that accesses this database using the service exposed by
 the database. We will provide a route (a URL) to access the frontend
 application from a browser.
 
-*Step 1: Create a Project*
-
-Based on the experience gained from the previous exercise, log into the
+Step 1:: Create a Project*
+Log into the
 OpenShift Web Console. You will see the list of Projects.
 
-Using the *Create Project* button, create a new project. We will call it
-*consoleproject-UserName*. Replace by your username to make this project
-unique. Type in a *Display Name* and *Description* of your choice.
+----
+Click on create project.
+Provide a projectname, display name and description.
+Click on Create.
+----
 
-Press the *Create* button to complete the project creation from the Web
-Console. This will accomplish the same job as `oc new-project` from CLI.
 
-*Step 2: Create a MYSQL database using the template*
+Step 2:: Create a MYSQL database using the template*
 
+----
 Click on *Add to Project -> Browse Catolog* button
-
 In the "*Search Catalog*" field type '*mysql*'
 
 Find *MySQL* template from the list and click *Select*. 
@@ -31,9 +30,7 @@ You will also notice *MySQL (Persistent)* template. But we will address
 that in a different lab exercise.
 
 On the "*Information*" page, click the "*Next*" button.
-
 You will be taken to the mysql ephemeral creation screen. 
-
 Edit the values to use the following values:
 
 ....
@@ -45,19 +42,22 @@ MySQL Database Name:       pricelist
 ....
 
 Click the "*Next*" button
+----
 
+Step 3:: Create a binding
 
+----
 On the "*Binding*" page click the *Create* button.
 
-Naviagete back to the project overview page and soon you will see
+Navigate back to the project overview page and soon you will see
 an image of a running pod.
+----
 
-image:images/mysql_pod_on_proj_overview.png[image]
+image::mysql_pod_on_proj_overview.png[image]
 
-*Step 3: Add data to MySQL database*
+Step 4:: Add data to MySQL database*
 
 Let us see how we can enter the pod and access the database.
-
 From the command line, change the project to the
 `<your_project>` using the following command:
 
@@ -164,7 +164,7 @@ select * from categories;
 
 Now `exit` MySQL client and `exit` out of the pod.
 
-*Step 4: Add a PHP frontend to talk to this database*
+Step 5:: Add a PHP frontend to talk to this database*
 
 In this step we will add a PHP frontend application that talks to
 recently created database. The code is available on github at
@@ -176,7 +176,7 @@ link:https://raw.githubusercontent.com/RedHatWorkshops/php-pricelist/master/conf
 To add a new application click on *Add to Project*. It takes you to
 Search Catalog page where you choose the *PHP* template.
 
-image:images/php.png[image]
+image::php.png[image]
 
 Enter the following values for each parameters:
 
@@ -195,7 +195,7 @@ You will also notice that a build starts running very soon. Once the
 build completes, the application image created from the source code will
 be uploaded to the docker repository.
 
-image:images/console_project_overview.png[image]
+image::console_project_overview.png[image]
 
 You can check the build logs using the following command:
 
@@ -248,6 +248,3 @@ The application should display in the Browser.  Click the *+Create Record* butto
 
 Then click on the *Read Records* button to return to the main page, you should see your new record.
 
-link:6_Scale_up_and_Scale_down_the_application_instances.adoc[Next Lab]
-
-link:README.adoc[Table Of Contents]

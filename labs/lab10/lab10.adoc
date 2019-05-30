@@ -1,12 +1,12 @@
-[[scale-up-and-scale-down-and-idle-the-application-instances]]
-Scale up and Scale down and Idle the application instances
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Scale up and Scale down and Idle the application instances
+
 
 In this exercise we will learn how to scale our application. OpenShift
 has the capability to scale your application and make sure that many
 instances are always running.
 
-*Step 1: Switch to an existing project*
+Step 1:: Switch to an existing project*
 
 For this exercise, we will be using an already running application. We
 will be using the `consoleproject-UserName` that you created in the
@@ -18,7 +18,7 @@ $ oc project consoleproject-UserName
 ....
 
 
-*Step 2: View the deployment config*
+Step 2:: View the deployment config*
 
 Take a look at the `deploymentConfig` (or `dc`) of the `pricelist`
 application
@@ -164,7 +164,7 @@ Controller, the application will scale up. But if you happen to delete
 the current replication controller for some reason, you will loose that
 setting.
 
-*Step 3: Scale Application*
+Step 3:: Scale Application*
 
 To scale your application we will edit the `deploymentConfig` to 3.
 
@@ -184,8 +184,9 @@ instances running now
 
 *Note:* You can also scale up and down from the web console by going to
 the project overview page and clicking twice on
-image:images/scale_up.jpg[image] right next to the pod count circle to
-add 2 more pods.
+
+image::/scale_up.jpg[image] 
+right next to the pod count circle to add 2 more pods.
 
 On the command line, see how many pods you are running now:
 
@@ -210,7 +211,7 @@ NAME        DESIRED   CURRENT   AGE
 pricelist-3    3         3         3h
 ....
 
-*Step 4: Idling the application*
+Step 4:: Idling the application*
 
 Run the following command to find the available endpoints
 
@@ -232,17 +233,17 @@ The service will unidle DeploymentConfig "jimgarrett/pricelist" to 3 replicas on
 DeploymentConfig "jimgarrett/pricelist" has been idled
 ....
 
-Go back to the webconsole. You will notice that the pods show up as
-idled.
+Go back to the webconsole. 
+You will notice that the pods show up as idled.
 
-image:images/idled_pods.jpeg[image]
+image::idled_pods.jpeg[image]
 
 At this point the application is idled, the pods are not running and no
 resources are being used by the application. This doesn’t mean that the
 application is deleted. The current state is just saved.. that’s all.
 
 
-*Step 6: Reactivate your application* Now click on the application route
+Step 6:: Reactivate your application* Now click on the application route
 URL or access the application via curl.
 
 Note that it takes a little while for the application to respond. This
@@ -254,7 +255,7 @@ with 3 pods.
 
 So, as soon as the user accesses the application, it comes up!!!
 
-*Step 7: Scaling Down*
+Step 7:: Scaling Down*
 
 Scaling down is the same procedure as scaling up. Use the `oc scale`
 command on the `pricelist` application `dc` setting.
@@ -275,6 +276,3 @@ Let's clean up your project before continuing to the next lab.
 
 $ oc delete project consoleproject-UserName
 
-link:7_Binary_Deployment_of_a_war_file.adoc[Next Lab]
-
-link:README.adoc[Table Of Contents]

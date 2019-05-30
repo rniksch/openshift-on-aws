@@ -1,6 +1,6 @@
-[[scm-web-hooks]]
-SCM Web Hooks
-~~~~~~~~~~~~~
+
+# Source control management Web Hooks
+
 
 OpenShift offers several mechanisms to trigger the automatic deployment
 of applications. In this Lab, we will demonstrate the deployment of a
@@ -16,7 +16,7 @@ In Part I of the Lab we will:
 * Deploy an application using a source to image strategy.
 * Create a route to expose the newly deployed application.
 
-*Step 1: Create new project*
+Step 1:: Create new project*
 
 *Remember* to substitute the UserName
 
@@ -25,7 +25,7 @@ $ oc new-project scm-web-hooks-UserName --display-name="Test WebHooks"
 ....
 
 
-*Step 2: Create new application*
+Step 2:: Create new application*
 
 * In the previous lab we used a github repository containing the bluegreen application.  
 For this lab we'll want to first "fork" that repository so we can make changes to the code.
@@ -41,7 +41,7 @@ when you create a new application in your project.
 $ oc new-app --image-stream=php --code=https://github.com/your_github_username/bluegreen.git --name=scm-web-hooks
 ....
 
-*Step 3: Look at some of the created resources*
+Step 3:: Look at some of the created resources*
 
 * Build configuration
 
@@ -103,7 +103,7 @@ Pushed 5/5 layers, 100% complete
 Push successful
 ....
 
-*Step 4: Create a route*
+Step 4:: Create a route*
 
 ....
 $ oc get service
@@ -119,13 +119,13 @@ $ oc expose service scm-web-hooks
 route "scm-web-hooks" exposed
 ....
 
-*Step 5: Test the application*
+Step 5:: Test the application*
 
 * Use the newly created route, in the above case
 `http://scm-web-hooks-<your_project>.apps.rhpds.openshift.opentlc.com/` and paste it in your browser.
 * You should see:
 
-image:images/blue_deployment.jpeg[image]
+image::blue_deployment.jpeg[image]
 
 [[part-ii]]
 Part II
@@ -142,7 +142,7 @@ In this part of the Lab we will:
 * Make a small change to the application.
 * Test to make sure the application was re-deployed.
 
-*Step 1: Retrieve the OpenShift Web Hook URL*
+Step 1:: Retrieve the OpenShift Web Hook URL*
 
 * From inside a web browser, navigate to your project and then click *Builds* and then
 *Builds*.
@@ -152,9 +152,9 @@ this case.
 link.
 * Copy the *GitHub webhook URL*. You will need this URL for next step.
 
-image:images/github_show_url.png[image]
+image::github_show_url.png[image]
 
-*Step 2: Configure GitHub repository Web Hook*
+Step 2:: Configure GitHub repository Web Hook*
 
 * Login to your GitHub account.
 * Navigate to the forked repository you used to create the application.
@@ -167,9 +167,9 @@ image:images/github_show_url.png[image]
 * Confirm by adding the *Add Webhook* button in green at the bottom of
 the page.
 
-image:images/github_add_webhook.jpg[image]
+image::github_add_webhook.jpg[image]
 
-*Step 3: Redeploy the application*
+Step 3:: Redeploy the application*
 
 * In your GitHub account edit the `image.php` file.
 * On line 6 it defined a $deployment variable and obtains the COLOR environment variable.
@@ -182,7 +182,7 @@ $deployment = 'green';
 
 * Commit the file.
 
-*Step 4: Monitor new deployment process*
+Step 4:: Monitor new deployment process*
 
 * After saving/committing the `image.php` file with the small change,
 you’ll notice in the OpenShift Web Console that a new build process has
@@ -205,6 +205,4 @@ deployments of applications using OpenShift and GitHub Web Hook
 triggers. It should be noted that OpenShift also supports Generic Web
 Hooks.
 
-link:11_Rollback_Applications.adoc[Next Lab]
 
-link:README.adoc[Table Of Contents]
