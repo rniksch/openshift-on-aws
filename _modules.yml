@@ -18,6 +18,6 @@ modules:
   labs_lab12_lab12:
     name: OPTIONAL - Auto deploy with web hooks
   labs_lab13_lab13:
-    name: OPTIONAL - Change Rollback     
+    name: OPTIONAL - Change Rollback
   labs_lab14_lab14:
     name: OPTIONAL - CICD
