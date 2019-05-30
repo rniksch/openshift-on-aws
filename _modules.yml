@@ -1,12 +1,6 @@
 modules:
   labs_lab0_chapter0:
     name: Getting Started
-  labs_lab1_chapter1:
-    name: New to containers - Intro to docker
-  labs_lab2_chapter2:
-    name: New to containers - lift and and shift monolith
-  labs_lab4_chapter4:  
-    name: OPTIONAL - Getting containers ready for OpenShift
   labs_lab5_chapter5:
     name: Deploying it easy
   labs_awssb_awssb:
@@ -24,6 +18,6 @@ modules:
   labs_lab12_lab12:
     name: OPTIONAL - Auto deploy with web hooks
   labs_lab13_lab13:
-    name: OPTIONAL - Change Rollback          
+    name: OPTIONAL - Change Rollback     
   labs_lab14_lab14:
-    name: OPTIONAL - CICD  
+    name: OPTIONAL - CICD
