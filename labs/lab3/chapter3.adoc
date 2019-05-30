@@ -15,8 +15,8 @@ Now we will develop the two images. Using the information above and the Dockerfi
 ```bash
 $ mkdir ~/workspace
 $ cd ~/workspace
-$ cp -R ~/summit-2018-container-lab/labs/lab3/mariadb .
-$ cp -R ~/summit-2018-container-lab/labs/lab3/wordpress .
+$ cp -R ~/openshift-on-aws/labs/lab3/mariadb .
+$ cp -R ~/openshift-on-aws/labs/lab3/wordpress .
 $ ls -lR mariadb
 $ ls -lR wordpress
 ```
@@ -245,7 +245,7 @@ To prepare for a later lab, let's deploy a simple registry to store our images.
 Navigate to the Lab3 directory
 
 ```bash
-$ cd ~/summit-2018-container-lab/labs/lab3
+$ cd ~/openshift-on-aws/labs/lab3
 ```
 
 Inspect the Dockerfile that has been prepared.
