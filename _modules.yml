@@ -6,7 +6,7 @@ modules:
   labs_lab2_chapter2:
     name: New to containers - lift and and shift monolith
   labs_lab3_chapter3:
-    name: New to containers - Breaking down the monolithlabs_lab4_chapter4
+    name: New to containers - Breaking down the monolith
   labs_lab4_chapter4:  
     name: OPTIONAL - Getting containers ready for OpenShift        
   labs_lab5_chapter5:
