@@ -1,6 +1,5 @@
-[[creating-a-pipeline]]
-### Creating a Pipeline
 
+#Creating a Pipeline
 
 In this lab, we will learn to create a build pipeline on OpenShift. This
 pipeline will be setup using Jenkins running as an application pod on
@@ -10,10 +9,15 @@ deployments on OpenShift.
 *Prerequisites:* You need a github account if you want to make changes
 and test the pipeline kick-off.
 
-*Step 1:* From a Web Browser Create a new project `pipeline-UserName`. 
+Step 1:: 
+----
+Connect to the OpenShift web console
+Creat a new project `pipeline-UserName`.
+----
 
 
-*Step 2:* Deploy your CI/CD tool (Jenkins)
+
+Step 2:: Deploy your CI/CD tool (Jenkins)
 
 Click on `Add to Project->Import YAML / JSON`.
 
@@ -77,7 +81,7 @@ Now you will be taken to Jenkins console (that is running on OpenShift).
 
 
 
-*Step 3:* Understand the pipeline
+Step 3:: Understand the pipeline
 
 Using left menu on the Web Console, select `Builds`->`Pipelines`. You
 will see that `myfirstpipeline` is created. Click on that.
@@ -103,12 +107,12 @@ pipeline (not auto-triggered by default). So let us create an
 application `myphp` with the build configuration and deployment
 configuration so that we can trigger it using this Jenkins pipeline.
 
-*Step 4:* Create an application
+Step 4:: Create an application
 
 If you haven't already done it in a previous lab Login to your github 
 repository and clone the following application into your github account
 
-https://github.com/VeerMuchandi/bluegreen
+https://github.com/RedHatWorkshops/bluegreen
 
 From within the OpenShift Console, click on `Add to Project` and select `PHP` latest image.
 
@@ -117,7 +121,7 @@ We will use `myphp` as the application name.
 *Note* same name will be used for buildConfig and deployConfig by default.
 
 Use your own github url if you want to test by pushing changes to code.
-Otherwise you can use https://github.com/VeerMuchandi/bluegreen.
+Otherwise you can use https://github.com/RedHatWorkshops/bluegreen.
 
 Now click on the link *advanced options*. It will open up a bunch of
 options and we will edit those. 
@@ -143,23 +147,23 @@ options
 By unchecking these, we are disabling the start of the deployments as we
 want to control those using pipeline.
 
-image:images/pipeline1.jpeg[image]
+image::pipeline1.jpeg[image]
 
 Now scroll down and click on the `Create` button.
 
 This will create the required objects (build configuration, deployment
 configuration, imagestream, service and route) but won't start a build.
 
-*Step 5:* Start pipeline
+Step 5:: Start pipeline
 
 Using the menu on the left, click on "Builds->Pipelines".  There should be
 one pipeline visible.  Click on the "Start Pipeline" button.
 
-image:images/pipeline2.jpeg[image]
+image::pipeline2.jpeg[image]
 
 Notice the pipeline starts and `build` and `deploy` stages are executed.
 
-image:images/pipeline3.jpeg[image]
+image::pipeline3.jpeg[image]
 
 Click on the `View log` link for the pipeline. It'll take you to Jenkins
 and show the logs.
@@ -168,7 +172,7 @@ In a couple of minutes, the `build` and `deploy` will complete, and your
 applicaiton will be deployed and scaled to 2 replicas. Now use the
 application to notice that the `blue` box is displayed.
 
-*Step 6:* Configure webhook and trigger with changes (optional)
+Step 6:: Configure webhook and trigger with changes (optional)
 
 
 Navigate back to the *Configuration* tab for the pipeline. 
@@ -214,6 +218,4 @@ Let's clean up your project prior to continueing.
 
 $ oc delete project pipeline-UserName
 
-link:15-dotnet-and-mysql-using-template.adoc[Next Lab]
 
-link:README.adoc[Table Of Contents]
