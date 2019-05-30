@@ -1,6 +1,7 @@
 
 # Source control management Web Hooks
 
+*Prerequisites:* You need a github account
 
 OpenShift offers several mechanisms to trigger the automatic deployment
 of applications. In this Lab, we will demonstrate the deployment of a

@@ -1,6 +1,6 @@
-[[rollback-applications]]
-Rollback Applications
-~~~~~~~~~~~~~~~~~~~~~
+# Rollback Applications
+
+*Prerequisites:* You need a github account
 
 In this lab we will see how we can rollback an application in OpenShift
 quickly without switching to an older version of the source code in SCM.
@@ -11,7 +11,7 @@ In this Lab we will:
 complete that Lab first.
 * Rollback the application using the OpenShift v3 command ``rollback''.
 
-*Step 1: Check application health status*
+Step 1:: Check application health status*
 
 * Run:
 
@@ -42,9 +42,9 @@ scm-web-hooks   2          1         1         config,image(scm-web-hooks:latest
 * The latest and active version for the application is *2*
 * If we display the application in the browser we see:
 
-image:images/green_app.jpg[image]
+image::green_app.jpg[image]
 
-*Step 2: Rollback the application*
+Step 2:: Rollback the application*
 
 * Using the previous command we ran to retrieve the deployment
 configuration, we will revert or rollback to version 1.
@@ -67,13 +67,10 @@ scm-web-hooks   3          1         1         config,image(scm-web-hooks:latest
 a new build configuration.
 * Reloading the application now displays:
 
-image:images/blue_app.jpg[image]
+image::blue_app.jpg[image]
 
 
 Let's clean up the project prior to continuing.
 
 $ oc delete project scm-web-hooks-UserName
 
-link:12_Code_Promotion_Across_Environments.adoc[Next Lab]
-
-link:README.adoc[Table Of Contents]
