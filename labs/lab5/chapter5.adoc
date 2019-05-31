@@ -1,0 +1,220 @@
+# OpenShift templates and web console
+
+OpenShift contains docker as well as Kubernetes layers to cater for the container runtime and orchestration of containers.
+OpenShift however caters for more than simple container orchestration. As such customers take their container images and improt these into the OpenShift platform.
+
+In this lab we introduce how to simplify your container deployments with OpenShift templates.  We will also explore the web console.
+
+This lab should be performed on **YOUR ASSIGNED AWS VM** as `ec2-user` unless otherwise instructed.
+
+Expected completion: 20 minutes
+
+## Project preparation
+
+Step 1:: Login to our local OpenShift.
+----
+$ oc login -u developer
+You have one project on this server: "myproject"
+----
+
+You are now logged in to OpenShift and are using the ```devel``` project. You can also view the OpenShift web console by using the same credentials to log in to ```https://<YOUR AWS VM PUBLIC DNS NAME HERE>:8443``` in a browser.
+
+Projects are an extention of the Kubernetes namespace, these projects can be used a administrative and permission boundries.
+
+Step 2:: Let's create a new project:
+----
+$ oc new-project production
+Now using project "devel" on server "https://127.0.0.1:8443".
+----
+
+
+## Wordpress templated deployment
+
+During the setup phase a wordpress and mariadb container were build and pushed to a local container repo running on port 5000.
+A template will be used to deploy these to OpenShift.
+
+
+Feel free to view the full template.
+----
+$ cd ~/openshift-on-aws/labs/lab5/
+$ grep localhost:5000 wordpress-template.yaml
+----
+
+You will note the application spec containing all the appliction details as well as the image being pulled from the local container repo.
+
+Step 3:: Let's deploy this wordpress template by adding your template to the production project
+----
+$ oc create -f wordpress-template.yaml
+template "wordpress" created
+----
+
+Step 4:: Deploy your new template with "oc new-app" and note its output
+----
+$ oc new-app --template wordpress
+--> Deploying template "production/wordpress" to project production
+----
+
+Step 5:: View all of the newly created resources
+----
+$ oc get all
+----
+
+You can confirm the state of the application roll out:
+
+----
+$ oc rollout status -w dc/mariadb
+$ oc rollout status -w dc/wordpress
+----
+
+You should see something like:
+----
+replication controller "mariadb-1" successfully rolled out
+replication controller "wordpress-1" successfully rolled out
+----
+
+Step 6:: Verify the database started
+----
+$ oc logs dc/mariadb
+----
+
+expected output: mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+
+Step 7:: Verify wordpress started
+----
+$ oc logs dc/wordpress
+----
+
+Expected outpiut: /usr/sbin/httpd -D FOREGROUND
+
+Step 8:: view of how these resources connect using oc status
+----
+$ oc status
+----
+
+Step 9:: Check and make sure you can access the wordpress service through it's route:
+----
+$ oc get routes
+$ curl -L wordpress-production.<YOUR AWS VM PUBLIC IP>.nip.io
+----
+
+* Or open the URL in a browser to view the UI
+
+OpenShift includes several ready-made templates. Let's take a look at some of them:
+----
+$ oc get templates -n openshift
+----
+
+For more information on templates, reference the official OpenShift documentation:
+
+[https://docs.openshift.com/container-platform/latest/dev_guide/templates.html](https://docs.openshift.com/container-platform/latest/dev_guide/templates.html)
+
+[https://docs.openshift.com/container-platform/latest/install_config/imagestreams_templates.html#is-templates-subscriptions](https://docs.openshift.com/container-platform/latest/install_config/imagestreams_templates.html#is-templates-subscriptions)
+
+## Web console
+
+Now that we have deployed our template, let’s login as developer to the OpenShift web console - `https://<YOUR AWS VM PUBLIC DNS NAME HERE>:8443`
+
+Step 10:: Get OpenShift console URL:
+----
+$ oc cluster status
+----
+
+Login to the web console with the `developer` user.
+
+image::1.png[Add Secrets1]
+
+
+And after we’ve logged in, we see a list of projects that the developer user has access to. Let's select the `production` project:
+
+image::2.png[Add Secrets2]
+
+
+Our project landing page provides us with a high-level overview of our wordpress application's pods, services, and route:
+
+OpenShift takes you by default to the *Overview* page and shows you a graphic representation of the application that is deployed here. You can see that a single pod is running and is front ended by a service. Note the route that you
+configured for this service is also shown. You will also see the *Add to
+Project* button on the top. This can be used to create new application
+from Web Console inside this project.
+
+image::3.png[Add Secrets3]
+
+
+Let's dive a little deeper. We want to view a list of our pods by clicking on `Pods` in the left Applications menu:
+
+image::4.png[Add Secrets4]
+
+
+Next, let's click on one of our running pods for greater detail:
+
+image::5.png[Add Secrets5]
+
+
+With this view, we have access to pod information like status, logs, image, volumes, and more:
+
+image::6.png[Add Secrets6]
+
+image::project_details.png[image]
+
+Select *Builds* under *Builds* tab, you will see all the build
+configurations. Click onto each build configuration and select the
+*Configuration* tab, we will be able to view all the build details.
+
+image::project_build_details.png[image]
+
+Select *Pods* under *Applications* tab, you will find a running pod that
+is running your application image. Note that it also tells you the node
+on which the pod is running and other details about this pod. You will
+also see the build pod that had succeeded.
+
+image::project_pods.png[image]
+
+Click onto running pod, it shows the details on the pod. In addition,
+metrics, logs and terminal also available for monitoring.
+
+image::project_pod_details.png[image]
+
+Click on *Terminal* tab, you will be able to access the pod from web
+console.
+
+image::terminal_view.png[image]
+
+If you click onto the *Metrics* tab under Pod and get an error viewing
+metrics on the browser, please do the following:
+
+1.  Open link for the Hawkular webpage from a new tab on the same broswer
+2.  Click ``Advanced'' link
+3.  Click ``Proceed to hawkular.<> (unsafe)''
+4.  Refresh the browser where you login at OpenShift console.
+
+Click *Builds* on left menu and select *Builds*. Select the build name
+*time* and then click on *Configuration* tab. Note there are webhook
+URLs. We will use them in a later lab exercise. You can start a build
+from the Web Console by pressing the *Start Build* button in the right
+top corner. It also gives you a command to start the build from CLI.
+
+image::project_build_configuration.png[image]
+
+* Select *Services* under *Applications* tab, you will find the service
+created for your application. Click onto one of the services, it shows
+all the details about the service along with the option to expose it as
+a route.
+* Select *Routes* under *Applications* tab, you will see all the routes
+in the project. Click onto a route, it shows all the details for this
+route.
+* Select *Deployments* under *Applications* tab, you will see all the
+deployments. Click onto a deployment, it shows all the details of the
+deployment. By pressing the *Deploy* button, you will be able to start a
+deployment from the web console.
+* Select *Monitoring* tab, you will see all the events for the project.
+Also latest events grouped by resource type.
+* Select *Images* under *Builds* tab, it shows the list of image streams
+for the project. Click onto the specific image stream, it shows more
+details about the image stream.
+
+Click on the *Resources* tab on the left to see that it would display
+the Quotas and Other Resources, if they exist. We will deal with them in
+a different lab exercise.
+
+Feel free to continue exploring the console.
+
+In the final lab you'll get to play with some new features, the service catalog and broker.

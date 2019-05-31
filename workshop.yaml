@@ -1,0 +1,25 @@
+---
+id: openshift_Extended_workshop
+name: Workshop
+workshop_title: "OpenShift on AWS"
+revision: openshift_Extended_workshop
+logo: "aws-smile.png"
+vars:
+  WORKSHOP: 2018
+modules:
+  activate:
+  - "labs_lab0_chapter0"
+  - "labs_lab1_chapter1"
+  - "labs_lab2_chapter2"
+  - "labs_lab3_chapter3"
+  - "labs_lab4_chapter4"
+  - "labs_lab5_chapter5"
+  - "labs_awssb_awssb"
+  - "labs_lab7_lab7"
+  - "labs_lab8_lab8"
+  - "labs_lab9_lab9"
+  - "labs_lab10_lab10"
+  - "labs_lab11_lab11"
+  - "labs_lab12_lab12"
+  - "labs_lab13_lab13"
+  - "labs_lab14_lab14"
