@@ -8,11 +8,11 @@ __mysql_config() {
 #  chown -R mysql:mysql /var/lib/mysql
   /usr/bin/mysqld_safe &
   sleep 10
-}
+)}
 
 __setup_mysql() {
   printf "Running the start_mysql function.\n"
-  ROOT_PASS="$(openssl rand -base64 12)"
+  ROOT_PASS="${DBROOTPASS-$(openssl rand -base64 12)}"
   USER="${DBUSER-dbuser}"
   PASS="${DBPASS-$(openssl rand -base64 12)}"
   NAME="${DBNAME-db}"

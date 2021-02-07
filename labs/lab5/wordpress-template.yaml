@@ -38,13 +38,18 @@ objects:
             value: ${DBPASS}
           - name: DBUSER
             value: ${DBUSER}
+          - name: DBROOTPASS
+            value: ${DBROOTPASS}
           image: 'localhost:5000/mariadb:latest'
           imagePullPolicy: Always
           livenessProbe:
-            initialDelaySeconds: 45
-            tcpSocket:
-              port: 3306
+            exec:
+              command: ["sh", "-c", "exec mysqladmin status -uroot -p$DBROOTPASS"]
+            initialDelaySeconds: 120
+            periodSeconds: 10
             timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
           name: mariadb
           ports:
           - containerPort: 3306
@@ -163,6 +168,12 @@ parameters:
   displayName: MariaDB Password
   from: '[a-zA-Z0-9]{12}'
   name: DBPASS
+  required: true
+  generate: expression
+- description: Password for MariaDB root user.
+  displayName: MariaDB Root Password
+  from: '[a-zA-Z0-9]{12}'
+  name: DBROOTPASS
   required: true
   generate: expression
 - description: Name of the MariaDB database accessed.
